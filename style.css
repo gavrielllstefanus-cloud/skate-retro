@@ -1,0 +1,74 @@
+body {
+    margin: 0; background: #90a4ae;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh; font-family: 'Courier New', Courier, monospace;
+    overflow: hidden; touch-action: manipulation;
+}
+
+#game-container {
+    width: 600px; height: 200px; background: #cfd8dc;
+    position: relative; border-bottom: 4px solid #455a64;
+    box-shadow: 0 10px 0 #b0bec5;
+}
+
+#ground {
+    position: absolute; bottom: 0; width: 100%; height: 2px;
+    background: #455a64;
+}
+
+#score {
+    position: absolute; top: 10px; left: 10px; color: #37474f; font-weight: bold;
+}
+
+/* KARAKTER SKATEBOARDER (KOTAK RETRO) */
+#player {
+    width: 30px; height: 40px; background: #37474f; /* Badan */
+    position: absolute; bottom: 10px; left: 50px;
+}
+.board {
+    width: 40px; height: 8px; background: #ff5252;
+    position: absolute; bottom: -8px; left: -5px; border-radius: 4px;
+}
+
+/* OBSTACLE: TONG SAMPAH RETRO */
+#obstacle {
+    width: 25px; height: 35px; background: #78909c;
+    position: absolute; bottom: 0; right: -50px;
+    border: 2px solid #546e7a;
+}
+.bin-lid {
+    width: 31px; height: 5px; background: #546e7a;
+    position: absolute; top: -5px; left: -3px;
+}
+
+/* ANIMASI */
+.jump { animation: jump-anim 0.5s linear; }
+@keyframes jump-anim {
+    0% { bottom: 10px; }
+    30% { bottom: 100px; }
+    70% { bottom: 100px; }
+    100% { bottom: 10px; }
+}
+
+.run { animation: run-anim 1.5s linear infinite; }
+@keyframes run-anim {
+    0% { right: -50px; }
+    100% { right: 100%; }
+}
+
+#msg {
+    position: absolute; width: 100%; text-align: center;
+    top: 50px; color: #78909c; font-size: 12px;
+}
+
+#game-over {
+    display: none; position: absolute; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); color: white;
+    flex-direction: column; justify-content: center; align-items: center;
+    z-index: 10;
+}
+
+button {
+    padding: 10px 20px; background: #ff5252; border: none;
+    color: white; cursor: pointer; font-family: inherit;
+}
